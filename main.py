@@ -167,6 +167,8 @@ class Snake():
         self.snake_body.insert(0, list(self.snake_head_pos))
         if (self.snake_head_pos[0] == food_pos[0] and
                 self.snake_head_pos[1] == food_pos[1]):
+            if self.snake_body == POLE:
+                game.win()
             SCORE += 20
             if b == 5:
                 luck = 1
@@ -184,6 +186,8 @@ class Snake():
                     food_pos = [a[0], a[1]]
         elif (self.snake_head_pos[0] == food_pos_gold[0] and
               self.snake_head_pos[1] == food_pos_gold[1] and luck == 1):
+            if self.snake_body == POLE:
+                game.win()
             SCORE += 100
             luck = 0
         else:
